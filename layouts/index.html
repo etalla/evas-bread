@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="hero">
+    <div class="hero-content">
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Description }}</p>
+        <div class="cta-buttons">
+            <a href="/method" class="btn">The Method</a>
+            <a href="/recipes" class="btn">Browse Recipes</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="/images/bread.jpg" alt="Sourdough bread">
+    </div>
+</div>
+{{ end }}
