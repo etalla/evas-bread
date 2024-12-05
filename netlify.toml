@@ -6,3 +6,10 @@
   HUGO_VERSION = "0.139.3"  # adjust to your Hugo version
   NETLIFY_USE_BUNDLING = "true"
   NETLIFY_EXPERIMENTAL_BUILD_REDUCE_BUNDLE_SIZE = "true"
+
+[dev]
+  command = "hugo server -w & npx decap-cms-proxy-server"
+  targetPort = 1313
+  port = 8888
+  publish = "public"
+  autoLaunch = true
