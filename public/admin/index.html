@@ -15,30 +15,12 @@
     <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
 
     <script>
-        // Pre-configure the site URL
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.setConfig({
-                APIUrl: 'https://evasbread.netlify.app/.netlify/identity'
-            });
-        }
-
         console.log('Admin page loaded');
         if (window.netlifyIdentity) {
             console.log('Netlify Identity widget loaded successfully');
         } else {
             console.log('Netlify Identity widget not loaded');
         }
-        
-        window.addEventListener('load', function() {
-            console.log('Window fully loaded');
-            if (window.CMS) {
-                console.log('Decap CMS loaded successfully');
-                // Trigger the login modal explicitly
-                window.netlifyIdentity.open();
-            } else {
-                console.log('Decap CMS not loaded');
-            }
-        });
     </script>
 </body>
 </html>
