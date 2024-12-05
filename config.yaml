@@ -53,7 +53,6 @@ security:
 # Static directory configuration
 staticDir:
   - static
-  - public
 
 # Keep our admin and content directories
 ignoreFiles:

@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (main or master)
+
+media_folder: "static/images" # Media files will be stored in the repo under static/images
+public_folder: "/images" # The src attribute for uploaded media will begin with /images
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "style"
+        label: "Style Variables"
+        file: "content/settings/style.json"
+        fields:
+          - {label: "Primary Color", name: "primaryColor", widget: "color", required: true}
+          - {label: "Secondary Color", name: "secondaryColor", widget: "color", required: true}
+          - {label: "Button Font Size", name: "buttonFontSize", widget: "string", required: true}
+          - {label: "Button Padding", name: "buttonPadding", widget: "string", required: true}
+          - {label: "Button Border Radius", name: "buttonBorderRadius", widget: "string", required: true}
+          - {label: "Card Background Color", name: "cardBgColor", widget: "color", required: true}
+          - {label: "Card Border Radius", name: "cardBorderRadius", widget: "string", required: true}
+          - {label: "Card Box Shadow", name: "cardBoxShadow", widget: "string", required: true}
+          - {label: "Card Padding", name: "cardPadding", widget: "string", required: true}

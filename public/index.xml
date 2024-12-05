@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Slow-fermented overnight bread, designed for busy people on Sourdough for Busy People</title>
-    <link>http://localhost:1313/</link>
+    <link>//localhost:1313/</link>
     <description>Recent content in Slow-fermented overnight bread, designed for busy people on Sourdough for Busy People</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>//localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>//localhost:1313/about/</guid>
       <description>&lt;p&gt;Welcome to Sourdough for Busy People! This blog was created to share simple, time-efficient methods for making delicious sourdough bread that fits into your busy lifestyle.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Recipes</title>
-      <link>http://localhost:1313/recipes/</link>
+      <link>//localhost:1313/recipes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/recipes/</guid>
+      <guid>//localhost:1313/recipes/</guid>
       <description>&lt;p&gt;Browse our collection of tried-and-tested sourdough recipes, all designed to work with our time-saving method.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Method</title>
-      <link>http://localhost:1313/method/</link>
+      <link>//localhost:1313/method/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/method/</guid>
+      <guid>//localhost:1313/method/</guid>
       <description>&lt;p&gt;Our method focuses on minimal hands-on time while maximizing flavor development through long, cold fermentation. Perfect for those who want great bread without spending all day in the kitchen.&lt;/p&gt;</description>
     </item>
   </channel>
