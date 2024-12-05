@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="/css/main.css" /> <!-- Link to your site's main CSS -->
+    <link rel="stylesheet" href="/admin/preview.css" />
+    <!-- Markdown rendering library -->
+    <script src="https://unpkg.com/marked@4.0.0/marked.min.js"></script>
+
 </head>
 <body>
     <div id="loader-container">
@@ -18,6 +23,30 @@
     </style>
 
     <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
+    <script>
+        CMS.registerPreviewStyle("/css/main.css");
+        CMS.registerPreviewStyle("/admin/preview.css");
+        
+        // Custom preview component
+        const HomePreview = createClass({
+            render: function() {
+                const entry = this.props.entry;
+                const description = entry.getIn(['data', 'description']) || '';
+                
+                return h('div', {},
+                    h('h1', {}, entry.getIn(['data', 'title'])),
+                    h('div', {
+                        className: 'description',
+                        dangerouslySetInnerHTML: { 
+                            __html: marked.parse(description) 
+                        }
+                    })
+                );
+            }
+        });
+
+        CMS.registerPreviewTemplate('home', HomePreview);
+    </script>
 
     <script>
         window.addEventListener('load', function() {
