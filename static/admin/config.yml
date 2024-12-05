@@ -1,19 +1,16 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (main or master)
-  publish_mode: editorial_workflow
-  local_backend: true  # Enable local backend
 
-local_backend: true  # Enable local backend
-
-media_folder: "static/images" # Media files will be stored in the repo under static/images
-public_folder: "/images" # The src attribute for uploaded media will begin with /images
-
-# Allow for previewing changes in backend
-local_backend: true  # Enables local backend when running netlify dev
+# Global settings
+local_backend: true
 publish_mode: editorial_workflow
-site_url: https://evasbread.netlify.app/  # Replace with your actual URL
-display_url: https://evasbread.netlify.app/  # Replace with your actual URL
+site_url: https://evasbread.netlify.app/
+display_url: https://evasbread.netlify.app/
+
+# Media settings
+media_folder: "static/images"
+public_folder: "/images"
 
 collections:
   - name: "settings"
@@ -35,7 +32,7 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "content/_index.md"  # or wherever your index content is stored
+      - file: "content/_index.md"
         label: "Home Page"
         name: "home"
         fields:
@@ -43,7 +40,7 @@ collections:
           - {
               label: "Description", 
               name: "description", 
-              widget: "markdown",  # Changed from "text" to "markdown"
+              widget: "markdown",
               buttons: [
                 "bold", 
                 "italic", 
