@@ -8,19 +8,28 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-    <h1>Admin Test</h1>
-    <div id="loader">Loading CMS...</div>
+    <!-- Remove the test heading and move loader inside a container -->
+    <div id="loader-container">
+        <div id="loader">Loading CMS...</div>
+    </div>
+
+    <style>
+        /* Hide loader when CMS is loaded */
+        .cms-loaded #loader-container {
+            display: none;
+        }
+    </style>
 
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
 
     <script>
-        console.log('Admin page loaded');
-        if (window.netlifyIdentity) {
-            console.log('Netlify Identity widget loaded successfully');
-        } else {
-            console.log('Netlify Identity widget not loaded');
-        }
+        // Hide loader when CMS is initialized
+        window.addEventListener('load', function() {
+            if (window.CMS) {
+                document.body.classList.add('cms-loaded');
+            }
+        });
     </script>
 </body>
 </html>
