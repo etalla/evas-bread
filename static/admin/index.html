@@ -4,32 +4,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
-    <!-- Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-    <!-- Remove the test heading and move loader inside a container -->
     <div id="loader-container">
         <div id="loader">Loading CMS...</div>
     </div>
 
     <style>
-        /* Hide loader when CMS is loaded */
         .cms-loaded #loader-container {
             display: none;
         }
     </style>
 
-    <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@3.1.2/dist/decap-cms.js"></script>
 
     <script>
-        // Hide loader when CMS is initialized
         window.addEventListener('load', function() {
             if (window.CMS) {
                 document.body.classList.add('cms-loaded');
             }
         });
+
+        // Add these debug logs
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                console.log("Auth initialized", user);
+            });
+            
+            window.netlifyIdentity.on("login", user => {
+                console.log("Logged in", user);
+            });
+
+            window.netlifyIdentity.on("error", err => {
+                console.error("Auth error", err);
+            });
+        }
     </script>
 </body>
 </html>

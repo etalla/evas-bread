@@ -22,3 +22,12 @@ collections:
           - {label: "Card Border Radius", name: "cardBorderRadius", widget: "string", required: true}
           - {label: "Card Box Shadow", name: "cardBoxShadow", widget: "string", required: true}
           - {label: "Card Padding", name: "cardPadding", widget: "string", required: true}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/_index.md"  # or wherever your index content is stored
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
