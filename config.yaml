@@ -1,0 +1,61 @@
+baseURL: "/"
+languageCode: "en-us"
+title: "Sourdough for Busy People"
+
+# Menu configuration
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "The Method"
+      url: "/method/"
+      weight: 2
+    - name: "Recipes"
+      url: "/recipes/"
+      weight: 3
+    - name: "About"
+      url: "/about/"
+      weight: 4
+
+# Required for Netlify CMS
+mediaTypes:
+  application/json:
+    suffixes:
+      - "json"
+
+outputFormats:
+  json:
+    mediaType: "application/json"
+    isPlainText: true
+    isHTML: false
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+  section:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+
+# Security headers for Netlify CMS
+security:
+  enableInlineShortcodes: false
+  
+  # Needed for Netlify CMS admin
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^GO_
+
+# Static directory configuration
+staticDir:
+  - static
+  - public
+
+# Keep our admin and content directories
+ignoreFiles:
+  - "content/settings/*"
+  - "public/admin/*"
