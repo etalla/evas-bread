@@ -1,7 +1,16 @@
-<nav>
-    <ul>
-        {{ range .Site.Menus.main }}
-        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-    </ul>
-</nav>
+<!-- layouts/partials/nav.html -->
+<header class="site-header">
+    <div class="header-content">
+        <a href="/" class="logo">
+            <img src="/images/logo.svg" alt="{{ .Site.Title }}" class="logo-image">
+        </a>
+        <nav class="main-nav">
+            <ul>
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
+</header>

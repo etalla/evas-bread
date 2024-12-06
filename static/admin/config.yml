@@ -38,9 +38,10 @@ collections:
         fields:
           - {label: "Title", name: "title", widget: "string"}
           - {
-              label: "Description", 
-              name: "description", 
+              label: "Subheader", 
+              name: "subheader", 
               widget: "markdown",
+              required: false,
               buttons: [
                 "bold", 
                 "italic", 

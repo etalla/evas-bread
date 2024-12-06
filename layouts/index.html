@@ -2,11 +2,7 @@
 <div class="hero">
     <div class="hero-content">
         <h1>{{ .Title | markdownify }}</h1>
-        <div class="description">{{ .Description | markdownify }}</div>
-        <div class="cta-buttons">
-            <a href="/method" class="btn">The Method</a>
-            <a href="/recipes" class="btn">Browse Recipes</a>
-        </div>
+        <div class="description">{{ .Content }}</div>
     </div>
     <div class="hero-image">
         <img src="/images/bread.jpg" alt="Sourdough bread">
