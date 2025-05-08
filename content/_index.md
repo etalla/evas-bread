@@ -1,5 +1,5 @@
 ---
-title: Delicious breads with minimal effort
+title: Slow fermented overnight breads, with minimal effort
 description: Mix, sleep, fold, chill, bake.
 subheader: "## Mix, sleep, shape, chill, bake."
 ---
