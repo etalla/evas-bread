@@ -1,0 +1,19 @@
+{{ $recipesPages := . }}
+{{ if reflect.IsMap . }}
+    {{ $recipesPages = .pages }}
+{{ end }}
+<div class="recipes-grid">
+    {{ range $recipesPages }}
+        {{ $title := .Title }}  <!-- Store the title in a variable -->
+        <article class="recipe-card">
+            <a href="{{ .RelPermalink }}">
+                {{ if .Params.image }}
+                <div class="featured-image">
+                    <img src="{{ .Params.image }}" alt="{{ $title }}" class="recipe-card-image">
+                </div>
+                {{ end }}
+                <h2>{{ $title }}</h2>
+            </a>
+        </article>
+    {{ end }}
+</div>

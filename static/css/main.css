@@ -1,27 +1,44 @@
 :root {
     --primary-color: #2d2d2d;
-    --background-color: #f5e6d3;
+    --background-color: #e8e6de69;
     --text-color: #2d2d2d;
+    --honey-color: #f5d485;
+    --brown-color: #985e32;
+
+    --text-size: 18px;
+    --table-text-size: 17px;
+    --footnote-text-size: 15px;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(180deg, var(--background-color), #fff);
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;*/
+    background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
+    font-family: "Source Sans 3";
+    font-size: var(--text-size);
 }
 
 .container {
-    max-width: 1200px;
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
     margin: 0 auto;
-    padding: 0 2rem;
+}
+li{
+    line-height: 1.45em;
+    margin-bottom: .75em;
 }
 /* 
     Header
     Logo & Navigation menu 
 */
+.site-header{
+    background: white;
+    background-image: linear-gradient(to bottom, var(--honey-color), var(--background-color));
+}
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -90,7 +107,13 @@ nav a {
         font-size: 1.5rem;
     }
 }
-
+/*
+    Main
+*/
+main{
+    max-width: 1200px;
+    margin: auto 2rem;
+}
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -112,7 +135,7 @@ nav a {
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: var(--text-size);
     line-height: 1.6;
     margin-bottom: 2rem;
 }
@@ -157,7 +180,7 @@ nav a {
     }
 }
 .page-content {
-    max-width: 800px;
+    max-width: 770px;
     margin: 0 auto;
     padding: 2rem 0;
 }
@@ -165,13 +188,66 @@ nav a {
 .page-content h1 {
     margin-bottom: 2rem;
 }
-
+/*
+    Recipes
+*/
 article {
-    margin-bottom: 2rem;
+    max-width: 770px;
+    margin: 2rem auto;
+}
+article .featured-image,
+article .image-gallery img{
+    margin-bottom: 1.5em;
+    width: auto;
+    max-width: 100%;
+    max-height: 500px;
+    display: block;
+    overflow: hidden;
+}
+/*
+.recipe-header{
+    position: relative;
+    background-color:#ecda9c;
+}
+
+.recipe-header::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc((50vw - 50%)* -1);
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    background-color: #ecda9c;
+}*/
+
+article h1{
+    font-size: 3rem;
+    font-family:  "Fira Sans", sans-serif;
+    line-height: 1.33em;
 }
 
 article h2 {
-    margin-bottom: 1rem;
+    font-family: "Source Serif 4";
+    font-size: 1.25em;
+    font-weight: 400;
+    line-height: 1.5em;
+    opacity: .9;
+    color: #3d3d3d;
+}
+
+article h3{
+    font-family: Oswald;
+    font-size: 1.5em;
+    /*
+    font-family: Lato;
+    font-family: "Fira Sans";
+    font-family: Merriweather;
+    font-family: "Source Sans 3";
+    font-family: "Source Serif 4";
+    font-family: "Playfair display";
+    font-family: "Crete round";*/
 }
 
 article a {
@@ -181,4 +257,91 @@ article a {
 
 article a:hover {
     text-decoration: underline;
+}
+
+article .divider{
+    border-bottom: var(--honey-color) 1px double;
+    border-top: var(--honey-color) 1px double;
+    height: 3px;
+    width: 75%; 
+    margin: 2em auto 0 auto;
+  }
+
+article .logo-divider{
+    width: 4em;
+    padding: 1.5em;
+    margin: -3em auto 0;
+    display: block; 
+    z-index: 100;
+    /* We want it to take the color of the background
+    but because our background is not opaque, if we repeat it, 
+    it looks off.
+    So here, set a white background, and then a linear gradient on top
+    */
+    background-image: linear-gradient(var(--background-color), var(--background-color));
+    background-color: white;
+}
+article .logo-divider g{
+    fill:var(--honey-color);
+}
+article .recipe-steps img{
+    max-width: 100%;
+    max-height: 300px;
+}
+figcaption{
+    font-size: 80%;
+    opacity: .75;
+    letter-spacing: -.02em;
+}
+.recipe-ingredients table{
+    border-collapse: collapse;
+}
+.recipe-ingredients td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px #985e3224 solid; 
+    font-size: var(--table-text-size);
+    letter-spacing: 0.5px;
+    vertical-align: top;
+  }
+.recipe-ingredients td:first-child {
+    width: 60px; 
+    color: var(--brown-color);
+  }
+.recipe-ingredients table + table{
+    margin-top: 0.75rem;
+  }
+.recipe-ingredients table + table td{
+    border-bottom: 0;
+    font-size: var(--footnote-text-size);
+    opacity: .85;
+}
+.recipe-ingredients table + table td:first-child{
+    width: 100%;
+    color: var(--text-color);
+}
+.recipe-step.has-image{
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 66% 33%;
+    grid-template-areas: "txt imgs";
+}
+.step-instructions{
+    grid-area: txt;
+}
+.step-images{
+    grid-area: imgs;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.recipe-step.has-video .step-images{
+    justify-content: start;
+}
+.step-images figure{
+    margin-inline-end: 0;
+}
+article .video-container{
+    margin-top: 3em;
 }

@@ -11,6 +11,12 @@ display_url: https://evasbread.netlify.app/
 # Media settings
 media_folder: "static/images"
 public_folder: "/images"
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "f5b0463214bdeaec3327"
+    multiple: false
+    previewStep: true
 
 collections:
   - name: "settings"
@@ -20,15 +26,43 @@ collections:
         label: "Style Variables"
         file: "content/settings/style.json"
         fields:
-          - {label: "Primary Color", name: "primaryColor", widget: "color", required: true}
-          - {label: "Secondary Color", name: "secondaryColor", widget: "color", required: true}
-          - {label: "Button Font Size", name: "buttonFontSize", widget: "string", required: true}
-          - {label: "Button Padding", name: "buttonPadding", widget: "string", required: true}
-          - {label: "Button Border Radius", name: "buttonBorderRadius", widget: "string", required: true}
-          - {label: "Card Background Color", name: "cardBgColor", widget: "color", required: true}
-          - {label: "Card Border Radius", name: "cardBorderRadius", widget: "string", required: true}
-          - {label: "Card Box Shadow", name: "cardBoxShadow", widget: "string", required: true}
-          - {label: "Card Padding", name: "cardPadding", widget: "string", required: true}
+          - label: "Primary Color"
+            name: "primaryColor"
+            widget: "color"
+            required: true
+          - label: "Secondary Color"
+            name: "secondaryColor"
+            widget: "color"
+            required: true
+          - label: "Button Font Size"
+            name: "buttonFontSize"
+            widget: "string"
+            required: true
+          - label: "Button Padding"
+            name: "buttonPadding"
+            widget: "string"
+            required: true
+          - label: "Button Border Radius"
+            name: "buttonBorderRadius"
+            widget: "string"
+            required: true
+          - label: "Card Background Color"
+            name: "cardBgColor"
+            widget: "color"
+            required: true
+          - label: "Card Border Radius"
+            name: "cardBorderRadius"
+            widget: "string"
+            required: true
+          - label: "Card Box Shadow"
+            name: "cardBoxShadow"
+            widget: "string"
+            required: true
+          - label: "Card Padding"
+            name: "cardPadding"
+            widget: "string"
+            required: true
+  
   - name: "pages"
     label: "Pages"
     files:
@@ -36,20 +70,74 @@ collections:
         label: "Home Page"
         name: "home"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {
-              label: "Subheader", 
-              name: "subheader", 
-              widget: "markdown",
-              required: false,
-              buttons: [
-                "bold", 
-                "italic", 
-                "link", 
-                "heading-two", 
-                "heading-three", 
-                "quote", 
-                "bulleted-list", 
-                "numbered-list"
-              ]
-            }
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Subheader"
+            name: "subheader"
+            widget: "markdown"
+            required: false
+  - name: "recipes"
+    label: "Recipe"
+    folder: "content/recipes"
+    create: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+      - label: "Description"
+        name: "description"
+        widget: "string"
+      - label: "Featured image"
+        name: "image"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: false
+            imagesOnly: true
+            previewStep: true
+            crop: "free"
+      - label: "Ingredients"
+        name: "ingredients"
+        widget: "markdown"
+      - label: "Recipe Steps"
+        name: "recipe_steps"
+        widget: "list"
+        fields:
+          - label: "Step Instructions"
+            name: "instructions"
+            widget: "markdown"
+          - label: "Step Images"
+            name: "images"
+            widget: "list"
+            required: false
+            fields:
+              - label: "Image"
+                name: "image"
+                widget: "image"
+              - label: "Caption"
+                name: "caption"
+                widget: "string"
+                required: false
+      - label: "Conclusion"
+        name: "conclusion"
+        widget: "markdown"
+        required: false
+      - label: "Final image"
+        name: "final_image"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
+            imagesOnly: true
+            previewStep: true
+            crop: "free"
+      - label: "Caption"
+        name: "caption"
+        widget: "string"
+        required: false

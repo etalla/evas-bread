@@ -46,6 +46,43 @@
         });
 
         CMS.registerPreviewTemplate('home', HomePreview);
+
+        CMS.registerEditorComponent({
+            id: "youtube",
+            label: "YouTube",
+            fields: [{
+                name: "id",
+                label: "YouTube Video ID",
+                widget: "string"
+            },
+            {
+                name: "start",
+                label: "Start Time (in seconds)",
+                widget: "number",
+                required: false,
+                value_type: "int",
+                min: 0
+            }],
+            pattern: /^{{< youtube id="([a-zA-Z0-9]+)"( start="([0-9]*)")? >}}/,
+            fromBlock: function(match) {
+                return {
+                id: match[1],
+                start: match[3]
+                };
+            },
+            toBlock: function(obj) {
+                let output = `{{< youtube id="${obj.id}"`;
+                if (obj.start) {
+                output += ` start="${obj.start}"`;
+                }
+                output += ` >}}`;
+                return output;
+            },
+            toPreview: function(obj) {
+                const startParam = obj.start ? `?start=${obj.start}` : '';
+                return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${obj.id}${startParam}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            }
+            });
     </script>
 
     <script>

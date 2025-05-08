@@ -8,4 +8,9 @@
         <img src="/images/bread.jpg" alt="Sourdough bread">
     </div>
 </div>
+
+<!-- Other homepage content -->
+{{ $recipePages := where .Site.RegularPages "Section" "recipes" }}
+{{ partial "recipes_grid" $recipePages }}
+<!-- More homepage content -->
 {{ end }}

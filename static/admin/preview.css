@@ -31,3 +31,9 @@ h1 {
 .description li {
     margin: 0.5rem 0;
 }
+.indent-right {
+    margin-left: 2em;
+  }
+.indent-left {
+    margin-left: -2em;
+}
